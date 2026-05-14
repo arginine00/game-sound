@@ -1,0 +1,41 @@
+name: Import game-sound app
+
+on:
+  push:
+    paths:
+      - .github/workflows/import-game-sound.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout game-sound
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Import app files from source PR
+        run: |
+          set -euo pipefail
+          workdir="$(mktemp -d)"
+          git clone https://github.com/arginine00/AIengineering3_homework.git "$workdir/source"
+          cd "$workdir/source"
+          git fetch origin refs/pull/2/head:refs/heads/rhythm-game-import
+          git checkout rhythm-game-import
+
+          cd "$GITHUB_WORKSPACE"
+          rsync -a --delete --exclude='.git' "$workdir/source/" "$GITHUB_WORKSPACE/"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to import."
+          else
+            git commit -m "Import image viewer and rhythm game prototype"
+            git push
+          fi
