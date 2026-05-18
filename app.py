@@ -572,8 +572,8 @@ def render_header() -> None:
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(90deg, rgba(230,248,255,.82), rgba(255,255,255,.16) 34%, rgba(232,244,255,.18) 62%, rgba(226,241,255,.86)),
-                linear-gradient(180deg, rgba(16,44,90,.1), rgba(18,38,76,.22));
+                linear-gradient(90deg, rgba(230,248,255,.32), rgba(255,255,255,.04) 34%, rgba(232,244,255,.06) 62%, rgba(226,241,255,.34)),
+                linear-gradient(180deg, rgba(16,44,90,.03), rgba(18,38,76,.08));
         }
         .lobby-hud {
             position: absolute;
@@ -813,7 +813,7 @@ def render_header() -> None:
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, rgba(19,34,65,.76), rgba(19,34,65,.28) 54%, rgba(19,34,65,.08));
+            background: linear-gradient(90deg, rgba(19,34,65,.42), rgba(19,34,65,.16) 54%, rgba(19,34,65,.03));
         }
         .hero-copy {
             position: absolute;
@@ -993,8 +993,8 @@ def render_home(songs: list[dict[str, Any]]) -> None:
           overflow: hidden;
           border-radius: 18px;
           background-image:
-            linear-gradient(90deg, rgba(232,248,255,.84), rgba(255,255,255,.18) 35%, rgba(235,247,255,.22) 62%, rgba(227,242,255,.88)),
-            linear-gradient(180deg, rgba(18,44,90,.06), rgba(18,38,76,.2)),
+            linear-gradient(90deg, rgba(232,248,255,.32), rgba(255,255,255,.05) 35%, rgba(235,247,255,.08) 62%, rgba(227,242,255,.34)),
+            linear-gradient(180deg, rgba(18,44,90,.02), rgba(18,38,76,.08)),
             url('{hero_uri}');
           background-size: cover;
           background-position: center;
@@ -1409,7 +1409,7 @@ def render_rhythm_component(song: dict[str, Any], difficulty_key: str, chart: di
           overflow: hidden;
           border-radius: 18px;
           color: #fff;
-          background-image: linear-gradient(90deg, rgba(13,25,55,.24), rgba(13,25,55,.58)), url('{stage_uri}');
+          background-image: linear-gradient(90deg, rgba(13,25,55,.1), rgba(13,25,55,.3)), url('{stage_uri}');
           background-size: cover;
           background-position: center;
           box-shadow: inset 0 0 0 1px rgba(255,255,255,.28);
