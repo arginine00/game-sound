@@ -201,12 +201,30 @@ button:disabled {
 }
 
 .toolRow button {
+  position: relative;
   width: 44px;
   height: 44px;
   display: grid;
   place-items: center;
   border-radius: 999px;
   color: #24426f;
+}
+
+.toolBadge {
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  min-width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  padding: 0 5px;
+  border-radius: 999px;
+  color: white;
+  background: #ff4f7f;
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  font-size: 10px;
+  font-weight: 950;
 }
 
 .leftStack {
@@ -390,7 +408,7 @@ button:disabled {
   right: 14px;
   bottom: 14px;
   display: grid;
-  grid-template-columns: 1.35fr repeat(5, 1fr);
+  grid-template-columns: 1.35fr repeat(6, 1fr);
   gap: 10px;
   align-items: end;
 }
@@ -625,6 +643,210 @@ button:disabled {
   background: rgba(255, 255, 255, 0.78);
   font-size: 12px;
   font-weight: 850;
+}
+
+.chartEditor {
+  display: grid;
+  gap: 8px;
+  max-height: 330px;
+  overflow: auto;
+  margin-top: 14px;
+  padding-right: 4px;
+}
+
+.chartNoteRow {
+  display: grid;
+  grid-template-columns: 116px 120px 150px repeat(2, minmax(105px, 1fr)) minmax(130px, 1.2fr);
+  gap: 8px;
+  align-items: end;
+  padding: 10px;
+  border-radius: 12px;
+  color: #213653;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(75, 134, 202, 0.22);
+}
+
+.chartNoteRow-key {
+  border-color: rgba(219, 167, 45, 0.55);
+}
+
+.chartNoteRow-rapid {
+  border-color: rgba(33, 184, 149, 0.55);
+}
+
+.chartNoteRow-hold {
+  border-color: rgba(214, 90, 156, 0.55);
+}
+
+.chartNoteMeta,
+.chartNoteRow label {
+  display: grid;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.chartNoteMeta strong {
+  font-size: 15px;
+}
+
+.chartNoteMeta span,
+.chartNoteMeta small,
+.chartNoteDetail {
+  color: #5a7392;
+  font-weight: 850;
+}
+
+.chartNoteRow input,
+.chartNoteRow select {
+  min-width: 0;
+  min-height: 34px;
+  padding: 6px 8px;
+  border-radius: 9px;
+  border: 1px solid rgba(75, 134, 202, 0.24);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.chartNoteDetail {
+  align-self: center;
+  font-size: 12px;
+}
+
+.specialNoteSettings {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 14px;
+  color: #213653;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(75, 134, 202, 0.22);
+}
+
+.specialNoteSettings strong {
+  font-weight: 950;
+}
+
+.specialNoteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.helpGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.itemInventoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+  max-height: 470px;
+  overflow: auto;
+}
+
+.itemCard {
+  display: grid;
+  grid-template-columns: 68px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  min-height: 112px;
+  padding: 13px;
+  border-radius: 14px;
+  color: #213653;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(75, 134, 202, 0.22);
+  box-shadow: 0 12px 26px rgba(32, 76, 132, 0.12);
+}
+
+.itemCard.empty {
+  opacity: 0.55;
+}
+
+.itemCard img {
+  width: 68px;
+  height: 68px;
+  object-fit: contain;
+}
+
+.itemCard strong,
+.itemCard small {
+  display: block;
+}
+
+.itemCard strong {
+  font-size: 16px;
+  font-weight: 950;
+}
+
+.itemCard small,
+.itemCard p {
+  color: #5a7392;
+  font-weight: 850;
+}
+
+.itemCard p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.itemCard > span {
+  min-width: 58px;
+  padding: 7px 9px;
+  border-radius: 999px;
+  color: white;
+  background: linear-gradient(135deg, #27c2eb, #6f70ed);
+  font-size: 12px;
+  font-weight: 950;
+  text-align: center;
+}
+
+.helpCard {
+  min-height: 160px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 15px;
+  border-radius: 16px;
+  color: #213653;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(75, 134, 202, 0.24);
+  box-shadow: 0 12px 26px rgba(32, 76, 132, 0.14);
+}
+
+.helpCard strong {
+  font-size: 17px;
+  font-weight: 950;
+}
+
+.helpCard p {
+  margin: 0;
+  line-height: 1.55;
+  font-weight: 800;
+}
+
+.helpCard code,
+.helpCodeList code {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 5px 8px;
+  border-radius: 8px;
+  color: #16314f;
+  background: rgba(232, 247, 255, 0.94);
+  border: 1px solid rgba(75, 134, 202, 0.18);
+  font-family: Consolas, "SFMono-Regular", monospace;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.helpCodeList {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 .effectSettingsLayout {
@@ -1278,8 +1500,27 @@ button:disabled {
   color: white;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.46), rgba(255, 216, 107, 0.16) 44%, transparent 68%);
   font-weight: 950;
-  animation: hit-pop 0.16s ease-out forwards;
+  animation: hit-pop 0.22s ease-out forwards;
   pointer-events: none;
+}
+
+.hitNoteVanish {
+  top: 43px;
+  left: var(--note-vanish-left-start, 92%);
+  z-index: 4;
+  pointer-events: none;
+  animation: note-vanish 0.52s ease-out forwards;
+  filter: brightness(1.45) drop-shadow(0 0 18px rgba(255, 238, 142, 0.9));
+}
+
+.hitNoteVanish::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.72), rgba(255, 216, 107, 0.28) 45%, transparent 70%);
+  mix-blend-mode: screen;
+  animation: note-vanish-aura 0.52s ease-out forwards;
 }
 
 @keyframes hit-pop {
@@ -1290,6 +1531,34 @@ button:disabled {
   to {
     opacity: 0;
     transform: scale(1.28);
+  }
+}
+
+@keyframes note-vanish {
+  0% {
+    opacity: 1;
+    left: var(--note-vanish-left-start, 92%);
+    transform: translateX(var(--note-vanish-x-start, 0)) scale(0.86);
+  }
+  38% {
+    opacity: 1;
+    transform: translateX(var(--note-vanish-x-start, 0)) scale(1.12);
+  }
+  100% {
+    opacity: 0;
+    left: var(--note-vanish-left-end, var(--note-vanish-left-start, 92%));
+    transform: translateX(var(--note-vanish-x-end, var(--note-vanish-x-start, 0))) scale(1.34);
+  }
+}
+
+@keyframes note-vanish-aura {
+  from {
+    opacity: 0.95;
+    transform: scale(0.55);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.45);
   }
 }
 
@@ -1347,10 +1616,123 @@ button:disabled {
   top: 34px;
 }
 
+.note-key {
+  border-color: #ffe58d;
+  box-shadow: 0 0 28px rgba(255, 229, 141, 0.55), 0 10px 22px rgba(0, 0, 0, 0.34);
+}
+
+.note-key::after {
+  display: none;
+}
+
+.noteKeyGlyph {
+  position: relative;
+  z-index: 2;
+  width: auto;
+  height: auto;
+  display: grid;
+  place-items: center;
+  color: #111111;
+  background: transparent;
+  border: 0;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 950;
+  text-transform: uppercase;
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.note-key.keyNote-button {
+  color: #111111;
+  border-color: #ffffff;
+  outline-color: rgba(255, 255, 255, 0.96);
+  background: #ffffff;
+  background-image: none;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+}
+
+.note-key.keyNote-character {
+  border-color: rgba(255, 255, 255, 0.94);
+  outline-color: rgba(255, 229, 141, 0.72);
+  box-shadow: 0 0 28px rgba(255, 229, 141, 0.5), 0 10px 22px rgba(0, 0, 0, 0.34), inset 0 8px 18px rgba(255, 255, 255, 0.2);
+}
+
+.note-key.keyNote-character .noteKeyGlyph {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 38px;
+  height: 38px;
+  color: #111111;
+  background: #ffffff;
+  border: 3px solid rgba(0, 0, 0, 0.88);
+  border-radius: 50%;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.32);
+}
+
+.note-rapid {
+  isolation: isolate;
+  border-style: solid;
+  border-color: #86ffdf;
+  box-shadow:
+    -10px -8px 0 rgba(134, 255, 223, 0.44),
+    -20px -16px 0 rgba(134, 255, 223, 0.24),
+    0 0 28px rgba(134, 255, 223, 0.42),
+    0 10px 22px rgba(0, 0, 0, 0.34);
+  animation: note-pulse 0.38s ease-in-out infinite alternate;
+}
+
+.note-rapid::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  border-radius: inherit;
+  border: 5px solid rgba(255, 255, 255, 0.72);
+  outline: 3px solid rgba(22, 91, 103, 0.5);
+  outline-offset: -10px;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.72), rgba(134, 255, 223, 0.58) 52%, rgba(28, 96, 120, 0.62));
+  transform: translate(-12px, -10px);
+  pointer-events: none;
+}
+
+.note-hold {
+  border-color: #ff9bd2;
+  border-radius: 30px;
+  width: var(--hold-note-width, 128px);
+  background-size: auto 100%, cover;
+}
+
+.note-hold::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  top: 50%;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.46), rgba(255, 155, 210, 0.72), rgba(255, 255, 255, 0.3));
+  transform: translateY(-50%);
+  box-shadow: 0 0 18px rgba(255, 155, 210, 0.5);
+  pointer-events: none;
+}
+
+@keyframes note-pulse {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(1.22);
+  }
+}
+
 .note span {
   position: absolute;
   bottom: -22px;
   min-width: 54px;
+  max-width: 128px;
   padding: 3px 7px;
   border-radius: 999px;
   color: white;
@@ -1375,6 +1757,80 @@ button:disabled {
   font-size: 22px;
   font-weight: 950;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.36);
+}
+
+.preLiveItems {
+  position: absolute;
+  z-index: 7;
+  left: 20px;
+  bottom: 20px;
+  width: 260px;
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 15px;
+  color: white;
+  background: rgba(18, 38, 76, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(8px);
+}
+
+.preLiveItems strong {
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.preLiveItemList {
+  display: grid;
+  gap: 7px;
+  max-height: 210px;
+  overflow: auto;
+}
+
+.preLiveItemList button {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 8px;
+  align-items: center;
+  min-height: 54px;
+  padding: 7px;
+  border-radius: 12px;
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  text-align: left;
+}
+
+.preLiveItemList button.selected {
+  background: rgba(255, 216, 107, 0.24);
+  border-color: rgba(255, 216, 107, 0.78);
+  box-shadow: 0 0 18px rgba(255, 216, 107, 0.26);
+}
+
+.preLiveItemList img {
+  grid-row: span 2;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.preLiveItemList span,
+.preLiveItemList small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preLiveItemList span {
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.preLiveItemList small {
+  opacity: 0.78;
+  font-size: 10px;
+  font-weight: 850;
 }
 
 .gameControls {
@@ -1599,9 +2055,18 @@ button:disabled {
 
 .missionCard strong,
 .missionCard span,
+.missionCard em,
 .missionCard small,
 .missionCard b {
   display: block;
+}
+
+.missionCard em {
+  margin-top: 5px;
+  color: #277fbd;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 950;
 }
 
 .missionCard strong {
@@ -1848,6 +2313,7 @@ button:disabled {
 }
 
 .shortCard {
+  position: relative;
   min-height: 168px;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
@@ -1863,6 +2329,12 @@ button:disabled {
 
 .shortCard.loaded {
   outline: 3px solid rgba(39, 194, 235, 0.5);
+}
+
+.shortCardMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .shortCard small {
@@ -1889,6 +2361,31 @@ button:disabled {
   line-height: 1.5;
 }
 
+.storyLiveFlag {
+  width: fit-content;
+  padding: 5px 8px;
+  border-radius: 999px;
+  color: white;
+  background: linear-gradient(135deg, #ff7ea7, #6f70ed);
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.storyReadBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  color: #1f6f57;
+  background: rgba(199, 255, 222, 0.94);
+  border: 1px solid rgba(63, 198, 139, 0.35);
+  font-size: 10px;
+  font-weight: 950;
+  line-height: 1;
+  box-shadow: 0 8px 18px rgba(38, 139, 96, 0.16);
+}
+
 .shortActions {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1913,38 +2410,163 @@ button:disabled {
 
 .storyCharacterLayer {
   position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 4%;
-  bottom: 18%;
+  z-index: 2;
+  left: var(--story-character-x, 50%);
+  right: auto;
+  top: auto;
+  bottom: var(--story-character-y, -44.75%);
+  width: min(52%, 540px);
+  height: 74%;
   background-image: var(--story-image);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center bottom;
   filter: drop-shadow(0 24px 28px rgba(31, 75, 132, 0.24));
   pointer-events: none;
+  transform: translateX(-50%) scaleX(var(--story-character-flip, 1)) scale(var(--story-character-scale, 1.75));
+  transform-origin: center bottom;
+}
+
+.storyEditMode .storyCharacterLayer {
+  pointer-events: auto;
+  outline: 2px dashed rgba(113, 217, 255, 0.92);
+  outline-offset: 8px;
+  cursor: grab;
+  touch-action: none;
+}
+
+.storyEditMode .storyCharacterLayer:active {
+  cursor: grabbing;
+}
+
+.storyDragHandle {
+  position: absolute;
+  z-index: 10;
+  left: var(--story-drag-left, 50%);
+  bottom: var(--story-drag-bottom, 66%);
+  transform: translateX(-50%);
+  min-height: 34px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: #182d56;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(75, 134, 202, 0.24);
+  font-size: 12px;
+  font-weight: 950;
+  box-shadow: 0 10px 22px rgba(24, 45, 86, 0.2);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.storyDragHandle:active {
+  cursor: grabbing;
 }
 
 .storyCharacter-left {
-  left: 2%;
-  right: 42%;
-  background-position: left bottom;
+  --story-character-x: 24%;
 }
 
 .storyCharacter-center {
-  left: 8%;
-  right: 8%;
-  background-position: center bottom;
+  --story-character-x: 50%;
 }
 
 .storyCharacter-right {
-  left: 42%;
-  right: 2%;
-  background-position: right bottom;
+  --story-character-x: 76%;
 }
 
 .storyCharacter-hidden {
   display: none;
+}
+
+.storyCharacter-custom {
+  background-position: center bottom;
+}
+
+.storyTransformEditor {
+  position: absolute;
+  z-index: 11;
+  left: var(--story-drag-left, 50%);
+  bottom: var(--story-drag-bottom, 66%);
+  transform: translate(-50%, calc(-100% - 10px));
+  width: 210px;
+  padding: 10px;
+  display: grid;
+  gap: 8px;
+  border-radius: 10px;
+  color: #182d56;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(75, 134, 202, 0.24);
+  box-shadow: 0 12px 26px rgba(24, 45, 86, 0.22);
+}
+
+.storyTransformEditor label {
+  display: grid;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.storyTransformEditor input[type="range"] {
+  width: 100%;
+  accent-color: var(--theme-a, #27c2eb);
+}
+
+.storyTransformEditor button {
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 8px;
+  color: #24426f;
+  background: rgba(233, 247, 255, 0.92);
+  border: 1px solid rgba(75, 134, 202, 0.22);
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.storyTransformEditor button.active {
+  color: white;
+  background: linear-gradient(135deg, var(--theme-a, #27c2eb), var(--theme-b, #6f70ed));
+}
+
+.storyPositionPresetEditor {
+  position: absolute;
+  z-index: 9;
+  left: 34px;
+  top: 48px;
+  width: min(420px, calc(100% - 220px));
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: end;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 10px;
+  color: #24426f;
+  background: rgba(233, 247, 255, 0.92);
+  border: 1px solid rgba(75, 134, 202, 0.22);
+  box-shadow: 0 12px 24px rgba(10, 20, 42, 0.18);
+}
+
+.storyPositionPresetEditor label {
+  display: grid;
+  gap: 3px;
+  font-size: 10px;
+  font-weight: 950;
+}
+
+.storyPositionPresetEditor input[type="range"] {
+  width: 100%;
+  accent-color: var(--theme-a, #27c2eb);
+}
+
+.storyPositionPresetEditor button {
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 8px;
+  color: white;
+  background: linear-gradient(135deg, var(--theme-a, #27c2eb), var(--theme-b, #6f70ed));
+  border: 0;
+  font-size: 12px;
+  font-weight: 950;
 }
 
 .storyTopBar {
@@ -1960,6 +2582,7 @@ button:disabled {
 
 .storyTopBar button,
 .storyLoader,
+.storyToolFile,
 .storyTools button,
 .storyPrev,
 .storyNext {
@@ -1981,7 +2604,15 @@ button:disabled {
   cursor: pointer;
 }
 
+.storyToolFile {
+  cursor: pointer;
+}
+
 .storyLoader input {
+  display: none;
+}
+
+.storyToolFile input {
   display: none;
 }
 
@@ -2030,7 +2661,10 @@ button:disabled {
   right: 22px;
   top: 12px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 7px;
+  max-width: calc(100% - 210px);
 }
 
 .storyTextBox p {
@@ -2106,6 +2740,752 @@ button:disabled {
 .storyLog em {
   font-style: normal;
   line-height: 1.45;
+}
+
+.storyEditMode .storyTextBox p {
+  padding-top: 38px;
+}
+
+.ui-scarlet {
+  color: #f8e8d6;
+  background:
+    radial-gradient(circle at 54% 12%, rgba(255, 216, 158, 0.26), transparent 28%),
+    radial-gradient(circle at 78% 74%, rgba(176, 21, 62, 0.26), transparent 30%),
+    linear-gradient(135deg, #12070b, #350912 48%, #090507);
+}
+
+.ui-scarlet .shell {
+  border-color: rgba(238, 198, 132, 0.62);
+  border-radius: 10px;
+  background: rgba(20, 8, 12, 0.78);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(255, 238, 190, 0.16);
+}
+
+.ui-scarlet .lobby::before,
+.ui-scarlet .gameStage::before,
+.ui-scarlet .storyScreen::before,
+.ui-scarlet .panelScreen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(8, 3, 5, 0.74), rgba(74, 8, 20, 0.12) 48%, rgba(8, 3, 5, 0.7)),
+    radial-gradient(circle at 58% 8%, rgba(255, 214, 160, 0.22), transparent 34%);
+}
+
+.ui-scarlet .panelScreen > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ui-scarlet .profilePlate,
+.ui-scarlet .resourceBar span,
+.ui-scarlet .toolRow button,
+.ui-scarlet .leftStack button,
+.ui-scarlet .speech,
+.ui-scarlet .noticePanel,
+.ui-scarlet .tile,
+.ui-scarlet .panelScreen,
+.ui-scarlet .songCard,
+.ui-scarlet .recordItem,
+.ui-scarlet .performanceSettings,
+.ui-scarlet .performanceRuleCard,
+.ui-scarlet .storyLog,
+.ui-scarlet .memorialCard,
+.ui-scarlet .helpCard {
+  color: #f8e8d6;
+  background:
+    linear-gradient(135deg, rgba(69, 12, 24, 0.84), rgba(18, 7, 10, 0.82));
+  border: 1px solid rgba(232, 190, 126, 0.48);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.34),
+    inset 0 0 0 1px rgba(255, 239, 190, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.ui-scarlet .panelScreen {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(32, 8, 14, 0.92), rgba(91, 12, 30, 0.8)),
+    url("/assets/backgrounds/story/story_festival.png"),
+    url("/assets/home_hero.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.ui-scarlet .lobbyNav button,
+.ui-scarlet .primary,
+.ui-scarlet .segmented button.active,
+.ui-scarlet .settingsSectionHeader button,
+.ui-scarlet .storyTools button.active {
+  color: #fff6e8;
+  background:
+    linear-gradient(135deg, #7f172f, #310811 58%, #b98145);
+  border: 1px solid rgba(245, 203, 138, 0.62);
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 239, 193, 0.26);
+}
+
+.ui-scarlet .lobbyNav .liveStart {
+  background:
+    linear-gradient(135deg, #5a0718, #9c1b38 48%, #d6a35d);
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0;
+}
+
+.ui-scarlet .profileAvatar,
+.ui-scarlet .panelScreen header span,
+.ui-scarlet .storyName {
+  color: #fff6e8;
+  background:
+    radial-gradient(circle at 35% 28%, #f7cf94, #a31738 42%, #2a0610);
+  border: 1px solid rgba(245, 203, 138, 0.7);
+}
+
+.ui-scarlet .resourceBar span {
+  min-width: 96px;
+  border-radius: 999px;
+}
+
+.ui-scarlet .eventPanel {
+  background:
+    linear-gradient(135deg, rgba(107, 13, 34, 0.9), rgba(183, 119, 62, 0.7));
+}
+
+.ui-scarlet .speech {
+  color: #fff6e8;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.54);
+}
+
+.ui-scarlet .speech::before,
+.ui-scarlet .speech::after,
+.ui-scarlet .storyTextBox::before,
+.ui-scarlet .resultPanel::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 203, 138, 0.78), transparent);
+  pointer-events: none;
+}
+
+.ui-scarlet .speech::before,
+.ui-scarlet .storyTextBox::before,
+.ui-scarlet .resultPanel::before {
+  top: 8px;
+}
+
+.ui-scarlet .speech::after {
+  bottom: 8px;
+}
+
+.ui-scarlet .field,
+.ui-scarlet .performanceSettings label,
+.ui-scarlet .performanceTarget small,
+.ui-scarlet .settingsSectionHeader span,
+.ui-scarlet .field small {
+  color: rgba(255, 239, 211, 0.78);
+}
+
+.ui-scarlet .field input,
+.ui-scarlet .field select,
+.ui-scarlet .performanceSettings input,
+.ui-scarlet .performanceSettings select,
+.ui-scarlet .helpCard code,
+.ui-scarlet .storyLoader,
+.ui-scarlet .storyTopBar button,
+.ui-scarlet .storyToolFile,
+.ui-scarlet .storyTools button,
+.ui-scarlet .storyPrev,
+.ui-scarlet .storyNext {
+  color: #fff3df;
+  background: rgba(24, 7, 11, 0.78);
+  border: 1px solid rgba(232, 190, 126, 0.44);
+}
+
+.ui-scarlet .gameStage {
+  background-image:
+    linear-gradient(90deg, rgba(9, 3, 5, 0.46), rgba(75, 8, 21, 0.44)),
+    var(--game-image, url("/assets/game_stage.png"));
+}
+
+.ui-scarlet .gameTop button,
+.ui-scarlet .gameControls button,
+.ui-scarlet .scoreHud,
+.ui-scarlet .gameCharacter,
+.ui-scarlet .performanceBadge {
+  color: #fff3df;
+  background: rgba(32, 8, 14, 0.78);
+  border: 1px solid rgba(232, 190, 126, 0.48);
+}
+
+.ui-scarlet .storyTextBox {
+  color: #fff3df;
+  background:
+    linear-gradient(180deg, rgba(83, 11, 29, 0.84), rgba(18, 7, 10, 0.96));
+  border-top: 1px solid rgba(232, 190, 126, 0.58);
+}
+
+.ui-scarlet .storyTopBar button,
+.ui-scarlet .storyLoader,
+.ui-scarlet .storyToolFile,
+.ui-scarlet .storyTools button,
+.ui-scarlet .storyPrev,
+.ui-scarlet .storyNext {
+  color: #fff3df;
+}
+
+.ui-scarlet .resultOverlay {
+  background-image:
+    linear-gradient(90deg, rgba(25, 5, 10, 0.92), rgba(87, 11, 31, 0.36)),
+    var(--result-image);
+  backdrop-filter: blur(4px);
+}
+
+.ui-scarlet .resultPanel,
+.ui-scarlet .resultStats div,
+.ui-scarlet .percentileCompare div {
+  color: #fff3df;
+  background: rgba(33, 8, 14, 0.82);
+  border: 1px solid rgba(232, 190, 126, 0.48);
+}
+
+.ui-scarlet .resultGrade {
+  color: #f2c16f;
+  text-shadow: 0 0 20px rgba(208, 46, 90, 0.52);
+}
+
+.ui-scarlet button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff4df;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif;
+  font-weight: 900;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.72),
+    0 0 12px rgba(241, 183, 103, 0.18);
+  background:
+    linear-gradient(180deg, rgba(118, 28, 47, 0.92), rgba(35, 8, 13, 0.94));
+  border: 1px solid rgba(238, 198, 132, 0.64);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 245, 210, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.42);
+}
+
+.ui-scarlet button::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  z-index: -1;
+  border: 1px solid rgba(255, 232, 177, 0.28);
+  pointer-events: none;
+}
+
+.ui-scarlet button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 231, 180, 0.24), transparent 22%),
+    radial-gradient(circle at 82% 88%, rgba(174, 27, 58, 0.34), transparent 28%);
+  pointer-events: none;
+}
+
+.ui-scarlet button:hover {
+  filter: brightness(1.12) saturate(1.08);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.42),
+    0 0 22px rgba(204, 55, 91, 0.28),
+    inset 0 1px 0 rgba(255, 245, 210, 0.34);
+}
+
+.ui-scarlet button:disabled {
+  color: rgba(255, 236, 204, 0.54);
+  background: rgba(32, 15, 17, 0.82);
+  border-color: rgba(179, 138, 84, 0.32);
+  opacity: 0.66;
+}
+
+.ui-scarlet button svg {
+  color: #f5c978;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.58));
+}
+
+.ui-scarlet .actions button,
+.ui-scarlet .difficultyTabs button,
+.ui-scarlet .segmented button,
+.ui-scarlet .settingsSectionHeader button,
+.ui-scarlet .storySelectHeader button,
+.ui-scarlet .chapterPager button,
+.ui-scarlet .storyChapterStrip button,
+.ui-scarlet .shortActions button,
+.ui-scarlet .storyTools button,
+.ui-scarlet .storyPrev,
+.ui-scarlet .storyNext,
+.ui-scarlet .resultActions button,
+.ui-scarlet .slotButtons button {
+  border-radius: 4px;
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%);
+  letter-spacing: 0;
+}
+
+.ui-scarlet .toolRow button,
+.ui-scarlet .storyTopBar button {
+  border-radius: 6px;
+  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0 50%);
+}
+
+.ui-scarlet .leftStack button,
+.ui-scarlet .songCard,
+.ui-scarlet .memorialCard,
+.ui-scarlet .noticePanel,
+.ui-scarlet .eventPanel {
+  border-radius: 6px;
+}
+
+.ui-scarlet .leftStack button::before,
+.ui-scarlet .songCard::before,
+.ui-scarlet .memorialCard::before,
+.ui-scarlet .noticePanel::before,
+.ui-scarlet .eventPanel::before {
+  border-radius: 3px;
+}
+
+.ui-scarlet .lobbyNav button {
+  border-radius: 5px;
+  clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 16px 100%, 0 50%);
+  font-size: 15px;
+}
+
+.ui-scarlet .lobbyNav .liveStart {
+  font-size: 24px;
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.76),
+    0 0 18px rgba(255, 202, 125, 0.34);
+}
+
+.ui-scarlet .segmented button:not(.active),
+.ui-scarlet .difficultyTabs button:not(.active),
+.ui-scarlet .storyChapterStrip button:not(.active),
+.ui-scarlet .slotButtons button:not(.active) {
+  color: #f4dcc0;
+  background: linear-gradient(180deg, rgba(50, 16, 20, 0.88), rgba(18, 7, 10, 0.9));
+}
+
+.ui-scarlet .songCard.selected,
+.ui-scarlet .memorialCard.selected,
+.ui-scarlet .slotButtons button.active {
+  outline: 2px solid rgba(245, 203, 138, 0.9);
+  box-shadow:
+    0 0 0 4px rgba(126, 20, 43, 0.42),
+    0 16px 34px rgba(0, 0, 0, 0.42);
+}
+
+.ui-scarlet .panelScreen h1,
+.ui-scarlet .profilePlate strong,
+.ui-scarlet .lobbyNav .liveStart,
+.ui-scarlet .storyName,
+.ui-scarlet .resultGrade {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif;
+}
+
+.ui-nocturne {
+  color: #ecf3ff;
+  background:
+    radial-gradient(circle at 22% 16%, rgba(95, 80, 255, 0.36), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(0, 214, 255, 0.2), transparent 24%),
+    linear-gradient(135deg, #050611, #111033 48%, #080510);
+}
+
+.ui-nocturne .shell {
+  border-color: rgba(139, 196, 255, 0.58);
+  border-radius: 12px;
+  background: rgba(7, 9, 25, 0.84);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.62),
+    0 0 42px rgba(84, 97, 255, 0.2),
+    inset 0 0 0 1px rgba(194, 230, 255, 0.14);
+}
+
+.ui-nocturne .lobby::before,
+.ui-nocturne .gameStage::before,
+.ui-nocturne .storyScreen::before,
+.ui-nocturne .panelScreen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(2, 4, 12, 0.74), rgba(13, 19, 58, 0.18), rgba(2, 4, 12, 0.7)),
+    repeating-linear-gradient(90deg, rgba(130, 220, 255, 0.08) 0 1px, transparent 1px 120px);
+}
+
+.ui-nocturne .panelScreen > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ui-nocturne .profilePlate,
+.ui-nocturne .resourceBar span,
+.ui-nocturne .toolRow button,
+.ui-nocturne .leftStack button,
+.ui-nocturne .speech,
+.ui-nocturne .noticePanel,
+.ui-nocturne .tile,
+.ui-nocturne .panelScreen,
+.ui-nocturne .songCard,
+.ui-nocturne .recordItem,
+.ui-nocturne .performanceSettings,
+.ui-nocturne .performanceRuleCard,
+.ui-nocturne .storyLog,
+.ui-nocturne .memorialCard,
+.ui-nocturne .helpCard {
+  color: #ecf3ff;
+  background:
+    linear-gradient(135deg, rgba(22, 25, 68, 0.86), rgba(5, 8, 24, 0.82));
+  border: 1px solid rgba(107, 205, 255, 0.48);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.38),
+    0 0 18px rgba(77, 115, 255, 0.16),
+    inset 0 0 0 1px rgba(210, 244, 255, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.ui-nocturne .panelScreen {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(7, 9, 25, 0.94), rgba(27, 20, 76, 0.78)),
+    url("/assets/backgrounds/story/story_future_city.png"),
+    url("/assets/home_hero.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.ui-nocturne button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #f3fbff;
+  font-family: "Segoe UI", "Noto Sans JP", system-ui, sans-serif;
+  font-weight: 950;
+  text-shadow: 0 0 12px rgba(88, 208, 255, 0.42);
+  background:
+    linear-gradient(180deg, rgba(44, 62, 151, 0.94), rgba(10, 12, 34, 0.94));
+  border: 1px solid rgba(116, 222, 255, 0.68);
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.38),
+    0 0 18px rgba(92, 111, 255, 0.28),
+    inset 0 1px 0 rgba(228, 250, 255, 0.26);
+}
+
+.ui-nocturne button::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  z-index: -1;
+  border: 1px solid rgba(180, 238, 255, 0.22);
+  pointer-events: none;
+}
+
+.ui-nocturne button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(120deg, transparent, rgba(122, 230, 255, 0.18), transparent);
+  pointer-events: none;
+}
+
+.ui-nocturne .actions button,
+.ui-nocturne .difficultyTabs button,
+.ui-nocturne .segmented button,
+.ui-nocturne .settingsSectionHeader button,
+.ui-nocturne .storySelectHeader button,
+.ui-nocturne .chapterPager button,
+.ui-nocturne .storyChapterStrip button,
+.ui-nocturne .shortActions button,
+.ui-nocturne .storyToolFile,
+.ui-nocturne .storyTools button,
+.ui-nocturne .storyPrev,
+.ui-nocturne .storyNext,
+.ui-nocturne .resultActions button,
+.ui-nocturne .slotButtons button,
+.ui-nocturne .lobbyNav button {
+  border-radius: 8px;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+}
+
+.ui-nocturne .primary,
+.ui-nocturne .segmented button.active,
+.ui-nocturne .difficultyTabs button.active,
+.ui-nocturne .storyTools button.active,
+.ui-nocturne .lobbyNav .liveStart {
+  color: #ffffff;
+  background:
+    linear-gradient(135deg, #236dff, #6d3cff 58%, #19d7ff);
+  border-color: rgba(186, 243, 255, 0.82);
+}
+
+.ui-nocturne .field,
+.ui-nocturne .performanceSettings label,
+.ui-nocturne .performanceTarget small,
+.ui-nocturne .settingsSectionHeader span,
+.ui-nocturne .field small {
+  color: rgba(226, 243, 255, 0.8);
+}
+
+.ui-nocturne .field input,
+.ui-nocturne .field select,
+.ui-nocturne .performanceSettings input,
+.ui-nocturne .performanceSettings select,
+.ui-nocturne .helpCard code,
+.ui-nocturne .storyLoader,
+.ui-nocturne .storyTopBar button,
+.ui-nocturne .storyToolFile,
+.ui-nocturne .storyTools button,
+.ui-nocturne .storyPrev,
+.ui-nocturne .storyNext {
+  color: #eef9ff;
+  background: rgba(7, 10, 28, 0.82);
+  border: 1px solid rgba(107, 205, 255, 0.44);
+}
+
+.ui-nocturne .gameStage {
+  background-image:
+    linear-gradient(90deg, rgba(3, 5, 15, 0.56), rgba(22, 20, 71, 0.42)),
+    var(--game-image, url("/assets/game_stage.png"));
+}
+
+.ui-nocturne .gameTop button,
+.ui-nocturne .gameControls button,
+.ui-nocturne .scoreHud,
+.ui-nocturne .gameCharacter,
+.ui-nocturne .performanceBadge,
+.ui-nocturne .storyTextBox,
+.ui-nocturne .resultPanel,
+.ui-nocturne .resultStats div,
+.ui-nocturne .percentileCompare div {
+  color: #effaff;
+  background: rgba(8, 11, 32, 0.82);
+  border: 1px solid rgba(107, 205, 255, 0.46);
+}
+
+.ui-nocturne .profileAvatar,
+.ui-nocturne .panelScreen header span,
+.ui-nocturne .storyName {
+  color: #ffffff;
+  background: radial-gradient(circle at 35% 28%, #b5f5ff, #365cff 42%, #100b34);
+  border: 1px solid rgba(186, 243, 255, 0.78);
+}
+
+.ui-nocturne .resultGrade {
+  color: #8feaff;
+  text-shadow: 0 0 22px rgba(88, 208, 255, 0.62);
+}
+
+.ui-aurora {
+  color: #163447;
+  background:
+    radial-gradient(circle at 20% 12%, rgba(255, 248, 218, 0.72), transparent 28%),
+    radial-gradient(circle at 82% 20%, rgba(89, 222, 202, 0.34), transparent 26%),
+    linear-gradient(135deg, #eafcff, #eef7f4 48%, #d8f7ef);
+}
+
+.ui-aurora .shell {
+  border-color: rgba(219, 184, 102, 0.72);
+  border-radius: 18px;
+  background: rgba(255, 255, 250, 0.74);
+  box-shadow:
+    0 28px 80px rgba(58, 105, 118, 0.26),
+    0 0 52px rgba(134, 225, 204, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+
+.ui-aurora .lobby::before,
+.ui-aurora .gameStage::before,
+.ui-aurora .storyScreen::before,
+.ui-aurora .panelScreen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(244, 255, 252, 0.48), rgba(41, 107, 116, 0.08), rgba(245, 250, 235, 0.48)),
+    radial-gradient(circle at 50% 0%, rgba(246, 214, 137, 0.3), transparent 36%);
+}
+
+.ui-aurora .panelScreen > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ui-aurora .profilePlate,
+.ui-aurora .resourceBar span,
+.ui-aurora .toolRow button,
+.ui-aurora .leftStack button,
+.ui-aurora .speech,
+.ui-aurora .noticePanel,
+.ui-aurora .tile,
+.ui-aurora .panelScreen,
+.ui-aurora .songCard,
+.ui-aurora .recordItem,
+.ui-aurora .performanceSettings,
+.ui-aurora .performanceRuleCard,
+.ui-aurora .storyLog,
+.ui-aurora .memorialCard,
+.ui-aurora .helpCard {
+  color: #163447;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 251, 0.88), rgba(219, 248, 241, 0.78));
+  border: 1px solid rgba(196, 151, 63, 0.48);
+  box-shadow:
+    0 14px 34px rgba(50, 104, 115, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(14px);
+}
+
+.ui-aurora .panelScreen {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(240, 255, 251, 0.9), rgba(255, 247, 220, 0.78)),
+    url("/assets/backgrounds/story/story_forest.png"),
+    url("/assets/home_hero.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.ui-aurora button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #17364a;
+  font-family: "Segoe UI", "Noto Sans JP", system-ui, sans-serif;
+  font-weight: 950;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 250, 0.94), rgba(191, 239, 229, 0.92));
+  border: 1px solid rgba(186, 142, 55, 0.6);
+  box-shadow:
+    0 10px 22px rgba(54, 110, 122, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -1px 0 rgba(146, 111, 46, 0.18);
+}
+
+.ui-aurora button::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  z-index: -1;
+  border: 1px solid rgba(209, 169, 82, 0.28);
+  pointer-events: none;
+}
+
+.ui-aurora button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 18% 15%, rgba(255, 255, 255, 0.72), transparent 24%),
+    radial-gradient(circle at 82% 85%, rgba(80, 211, 194, 0.22), transparent 28%);
+  pointer-events: none;
+}
+
+.ui-aurora .actions button,
+.ui-aurora .difficultyTabs button,
+.ui-aurora .segmented button,
+.ui-aurora .settingsSectionHeader button,
+.ui-aurora .storySelectHeader button,
+.ui-aurora .chapterPager button,
+.ui-aurora .storyChapterStrip button,
+.ui-aurora .shortActions button,
+.ui-aurora .storyToolFile,
+.ui-aurora .storyTools button,
+.ui-aurora .storyPrev,
+.ui-aurora .storyNext,
+.ui-aurora .resultActions button,
+.ui-aurora .slotButtons button,
+.ui-aurora .lobbyNav button {
+  border-radius: 999px;
+}
+
+.ui-aurora .primary,
+.ui-aurora .segmented button.active,
+.ui-aurora .difficultyTabs button.active,
+.ui-aurora .storyTools button.active,
+.ui-aurora .lobbyNav .liveStart {
+  color: #17364a;
+  background:
+    linear-gradient(135deg, #fff7d6, #82ead2 58%, #f1c767);
+  border-color: rgba(170, 126, 40, 0.72);
+}
+
+.ui-aurora .field,
+.ui-aurora .performanceSettings label,
+.ui-aurora .performanceTarget small,
+.ui-aurora .settingsSectionHeader span,
+.ui-aurora .field small {
+  color: rgba(21, 52, 71, 0.78);
+}
+
+.ui-aurora .field input,
+.ui-aurora .field select,
+.ui-aurora .performanceSettings input,
+.ui-aurora .performanceSettings select,
+.ui-aurora .helpCard code,
+.ui-aurora .storyLoader,
+.ui-aurora .storyTopBar button,
+.ui-aurora .storyToolFile,
+.ui-aurora .storyTools button,
+.ui-aurora .storyPrev,
+.ui-aurora .storyNext {
+  color: #17364a;
+  background: rgba(255, 255, 252, 0.86);
+  border: 1px solid rgba(186, 142, 55, 0.42);
+}
+
+.ui-aurora .gameStage {
+  background-image:
+    linear-gradient(90deg, rgba(239, 255, 252, 0.24), rgba(26, 88, 101, 0.22)),
+    var(--game-image, url("/assets/game_stage.png"));
+}
+
+.ui-aurora .gameTop button,
+.ui-aurora .gameControls button,
+.ui-aurora .scoreHud,
+.ui-aurora .gameCharacter,
+.ui-aurora .performanceBadge,
+.ui-aurora .storyTextBox,
+.ui-aurora .resultPanel,
+.ui-aurora .resultStats div,
+.ui-aurora .percentileCompare div {
+  color: #163447;
+  background: rgba(249, 255, 252, 0.82);
+  border: 1px solid rgba(196, 151, 63, 0.46);
+}
+
+.ui-aurora .profileAvatar,
+.ui-aurora .panelScreen header span,
+.ui-aurora .storyName {
+  color: #17364a;
+  background: radial-gradient(circle at 35% 28%, #ffffff, #82ead2 42%, #e6b44e);
+  border: 1px solid rgba(170, 126, 40, 0.72);
+}
+
+.ui-aurora .resultGrade {
+  color: #1b8f8b;
+  text-shadow: 0 0 18px rgba(255, 237, 158, 0.62);
 }
 
 .memorialGrid {
@@ -2343,18 +3723,26 @@ button:disabled {
   }
 
   .storyCharacterLayer {
-    left: 2%;
-    right: 2%;
-    bottom: 24%;
+    right: auto;
+    width: min(72%, 420px);
+    bottom: -40%;
   }
 
   .storyTextBox {
-    height: 25%;
+    height: 20%;
+    min-height: 128px;
     padding: 58px 18px 54px;
   }
 
   .storyTools {
     right: 16px;
+  }
+
+  .storyPositionPresetEditor {
+    left: 18px;
+    right: 18px;
+    width: auto;
+    grid-template-columns: 1fr 1fr auto;
   }
 
   .storyTextBox p {

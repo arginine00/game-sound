@@ -2,6 +2,7 @@ import base64
 import json
 import mimetypes
 import re
+import shutil
 import time
 from html import escape
 from pathlib import Path
@@ -117,6 +118,93 @@ def install_song(uploaded_file: Any, title: str, artist: str) -> dict[str, Any]:
     song["folder"] = str(song_dir)
     song["song_id"] = song_id
     return song
+
+
+def supported_audio_file(path: Path) -> bool:
+    return path.is_file() and path.suffix.lower().lstrip(".") in SUPPORTED_AUDIO_TYPES
+
+
+def unique_song_dir(song_id: str) -> tuple[str, Path]:
+    base_id = slugify(song_id)
+    candidate_id = base_id
+    candidate_dir = SONGS_DIR / candidate_id
+    index = 2
+    while candidate_dir.exists():
+        candidate_id = f"{base_id}_{index}"
+        candidate_dir = SONGS_DIR / candidate_id
+        index += 1
+    return candidate_id, candidate_dir
+
+
+def create_song_metadata(song_dir: Path, audio_path: Path, song_id: str, title: str, artist: str = "Unknown") -> dict[str, Any]:
+    metadata = analyze_audio_metadata(audio_path)
+    song = {
+        "id": song_id,
+        "title": title.strip() or song_id,
+        "artist": artist.strip() or "Unknown",
+        "bpm": metadata["bpm"],
+        "duration_seconds": metadata["duration_seconds"],
+        "audio_file": audio_path.name,
+        "created_at": int(audio_path.stat().st_mtime),
+        "analysis_version": ANALYSIS_VERSION,
+    }
+    write_json(song_dir / "song.json", song)
+    song["folder"] = str(song_dir)
+    song["song_id"] = song_id
+    return song
+
+
+def register_loose_audio_file(audio_path: Path) -> dict[str, Any] | None:
+    song_id, song_dir = unique_song_dir(audio_path.stem)
+    try:
+        song_dir.mkdir(parents=True, exist_ok=False)
+        target_audio = song_dir / f"audio{audio_path.suffix.lower()}"
+        shutil.move(str(audio_path), target_audio)
+    except OSError:
+        return None
+    return create_song_metadata(song_dir, target_audio, song_id, audio_path.stem)
+
+
+def register_song_folder(song_dir: Path) -> dict[str, Any] | None:
+    if (song_dir / "song.json").exists():
+        return None
+    audio_files = sorted(path for path in song_dir.iterdir() if supported_audio_file(path))
+    if not audio_files:
+        return None
+    audio_path = audio_files[0]
+    song_id = slugify(song_dir.name)
+    title = song_dir.name if audio_path.stem.lower() == "audio" else audio_path.stem
+    return create_song_metadata(song_dir, audio_path, song_id, title)
+
+
+def ensure_all_charts(song: dict[str, Any]) -> int:
+    generated = 0
+    for difficulty_key in DIFFICULTIES:
+        chart = load_chart(song, difficulty_key)
+        if chart and int(chart.get("analysis_version", 0)) >= ANALYSIS_VERSION:
+            continue
+        write_json(chart_path(song, difficulty_key), generate_chart(song, difficulty_key))
+        generated += 1
+    return generated
+
+
+def sync_song_library() -> dict[str, int]:
+    ensure_library()
+    report = {"registered": 0, "charts": 0}
+    for audio_path in sorted(path for path in SONGS_DIR.iterdir() if supported_audio_file(path)):
+        song = register_loose_audio_file(audio_path)
+        if not song:
+            continue
+        report["registered"] += 1
+        report["charts"] += ensure_all_charts(song)
+    for song_dir in sorted(path for path in SONGS_DIR.iterdir() if path.is_dir()):
+        song = register_song_folder(song_dir)
+        if song:
+            report["registered"] += 1
+            report["charts"] += ensure_all_charts(song)
+    for song in list_songs():
+        report["charts"] += ensure_all_charts(song)
+    return report
 
 
 def analyze_audio_metadata(audio_path: Path) -> dict[str, int]:
@@ -1663,6 +1751,14 @@ def render_settings() -> None:
 
 def main() -> None:
     ensure_library()
+    if not st.session_state.get("song_library_synced"):
+        with st.spinner("楽曲フォルダを確認して譜面を準備中..."):
+            sync_report = sync_song_library()
+        st.session_state["song_library_synced"] = True
+        if sync_report["registered"] or sync_report["charts"]:
+            st.toast(
+                f"楽曲 {sync_report['registered']} 件を登録し、譜面 {sync_report['charts']} 件を生成しました。"
+            )
     render_header()
     songs = list_songs()
     query_screen = st.query_params.get("screen", None)

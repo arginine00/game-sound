@@ -1,0 +1,43 @@
+# story動作確認用
+# 使い方: Story画面で任意の短編の TXT からこのファイルを読み込む
+# 最後まで進むと「ライブへ」ボタンになり、AUTO時も読了後にライブ選択へ移動する
+# title: 背景とライブ接続テスト
+# subtitle: 複数キャラ表示・読了後ライブ設定を確認する台本
+@after live
+# live difficulty: normal
+# live stage: story_live_house.png
+# song hit: /assets/characters/akari/akari_note.png
+# song hit layer: front
+# song hit size: 110
+
+/story_classroom.png, Akari, joy, center
+地の文: 放課後の教室に、まだ少しだけ祭りの熱が残っていた。
+Akari: 先生、今日はこの流れでライブまでつなげてみよう！
+
+/story_festival.png, Akari:fun:left|Reina:joy:right
+Akari: まずは背景変更の確認だよ。お祭りステージ、ちゃんと出てる？
+地の文: 提灯の光が揺れて、アカリの声も少し弾んで聞こえる。
+
+/story_classroom.png, Akari:joy:left|Ren:fun:center|Yui:sadness:right
+地の文: 3人同時表示のチェック。左、中央、右に別キャラが並んでいれば成功。
+Ren: 中央にいるキャラも、位置編集でドラッグできるか確認して。
+
+/story_forest.png, Reina:joy:x=24,y=-44.8|Mika:fun:x=76,y=-44.8
+地の文: カスタム座標の複数表示チェック。2人をドラッグして保存できるか確認する。
+Mika: x と y の指定が効いていれば、左右に少し離れて表示されるはず！
+
+/story_forest.png, Reina, joy, right
+Reina: 次はキャラクター切り替えと右配置の確認です。
+Reina: 表情差分も、joy が表示されていれば成功ですね。
+
+/story_rooftop_sunset.png, Ren, anger, left
+Ren: 左配置、怒り表情。ここでテンションを上げておく。
+地の文: 夕焼けの屋上に、リズムの輪郭が濃くなっていく。
+
+/story_future_city.png, Yui, sadness, center
+Yui: 中央配置と哀しみ表情の確認。少し静かな場面だね。
+Yui: でも、このあとちゃんとライブにつながるから大丈夫。
+
+/story_live_house.png, Mika, fun, right
+Mika: 最後はライブハウス背景。ここまで来たら準備完了！
+Mika: 次へを押したらライブ選択に進むはずだよ。

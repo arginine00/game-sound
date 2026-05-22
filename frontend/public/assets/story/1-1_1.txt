@@ -1,0 +1,78 @@
+# title: 1章1話 表情・背景確認
+# subtitle: 全キャラのstory表情差分と背景を順番に確認するチェック用台本
+@live off
+
+/story_classroom, , , hidden
+地の文: 背景確認 01 story_classroom。ここから全キャラの表情差分を順番に表示します。
+
+/story_festival, akari:joy:left|shion:joy:right, , center
+Akari: Akari joy / Shion joy。背景確認 02 story_festival。
+
+/story_forest, akari:fun:left|shion:fun:right, , center
+Akari: Akari fun / Shion fun。背景確認 03 story_forest。
+
+/story_future_city, akari:anger:left|shion:anger:right, , center
+Akari: Akari anger / Shion anger。背景確認 04 story_future_city。
+
+/story_live_house, akari:sadness:left|shion:sadness:right, , center
+Akari: Akari sadness / Shion sadness。背景確認 05 story_live_house。
+
+/story_rainy_station, shion:embarras:center, , center
+Shion: Shion embarras。追加表情の直接指定確認です。
+
+/story_residential_street, mika:joy:left|reina:joy:right, , center
+Mika: Mika joy / Reina joy。背景確認 06 story_residential_street。
+
+/story_rooftop_sunset, mika:fun:left|reina:fun:right, , center
+Mika: Mika fun / Reina fun。背景確認 07 story_rooftop_sunset。
+
+/story_seaside, mika:anger:left|reina:anger:right, , center
+Mika: Mika anger / Reina anger。背景確認 08 story_seaside。
+
+/story_shrine, mika:sadness:left|reina:sadness:right, , center
+Mika: Mika sadness / Reina sadness。背景確認 09 story_shrine。
+
+/story_classroom, ren:joy:left|yui:joy:right, , center
+Ren: Ren joy / Yui joy。
+
+/story_festival, ren:fun:left|yui:fun:right, , center
+Ren: Ren fun / Yui fun。
+
+/story_forest, ren:anger:left|yui:anger:right, , center
+Ren: Ren anger / Yui anger。
+
+/story_future_city, ren:sadness:left|yui:sadness:right, , center
+Ren: Ren sadness / Yui sadness。
+
+/story_live_house, mei:joy:left|fault:joy:right, , center
+Mei: Mei joy / Fault joy。
+
+/story_rainy_station, mei:fun:left|fault:fun:right, , center
+Mei: Mei fun / Fault fun。
+
+/story_residential_street, mei:anger:left|fault:anger:right, , center
+Mei: Mei anger / Fault anger。meiはフォルダ内のme_story_anger.pngも解決対象です。
+
+/story_rooftop_sunset, mei:sadness:left|fault:sadness:right, , center
+Mei: Mei sadness / Fault sadness。
+
+/story_seaside, kanae:joy:left|kanae:fun:right, , center
+Kanae: Kanae joy / Kanae fun。
+
+/story_shrine, kanae:anger:left|kanae:sadness:right, , center
+Kanae: Kanae anger / Kanae sadness。背景確認 10 story_shrine。
+
+/story_classroom, akari::left|mika::right, , center
+地の文: 通常立ち絵確認 Akari / Mika。
+
+/story_festival, reina::left|ren::right, , center
+地の文: 通常立ち絵確認 Reina / Ren。
+
+/story_forest, yui::left|mei::right, , center
+地の文: 通常立ち絵確認 Yui / Mei。
+
+/story_future_city, fault::left|kanae::right, , center
+地の文: 通常立ち絵確認 Fault / Kanae。
+
+/story_live_house, shion::center, , center
+地の文: 通常立ち絵確認 Shion。全チェック終了です。

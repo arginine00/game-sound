@@ -1,0 +1,4 @@
+id,name,description,effect,value,maxUses,owned,icon
+combo_charm,コンボチャーム,コンボが切れるMISSを1回だけ防ぎます,combo_guard,1,1,0,combo_charm.svg
+miss_badge,MISSバッジ,MISSになった音符を1回だけOKとして救済します,miss_guard,1,1,0,miss_badge.svg
+score_amp,スコアアンプ,ライブ中の判定スコアを5%上げます,score_boost,5,1,0,score_amp.svg
